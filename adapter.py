@@ -1,38 +1,18 @@
 class Target:
-    """
-    Целевой класс объявляет интерфейс, с которым может работать клиентский код.
-    """
-
     def request(self) -> str:
         return "Target: The default target's behavior."
 
 
 class Adaptee:
-    """
-    Адаптируемый класс содержит некоторое полезное поведение, но его интерфейс
-    несовместим с существующим клиентским кодом. Адаптируемый класс нуждается в
-    некоторой доработке, прежде чем клиентский код сможет его использовать.
-    """
-
     def specific_request(self) -> str:
         return ".eetpadA eht fo roivaheb laicepS"
 
 
 class Adapter(Target, Adaptee):
-    """
-    Адаптер делает интерфейс Адаптируемого класса совместимым с целевым
-    интерфейсом благодаря множественному наследованию.
-    """
-
     def request(self) -> str:
         return f"Adapter: (TRANSLATED) {self.specific_request()[::-1]}"
 
-
 def client_code(target: "Target") -> None:
-    """
-    Клиентский код поддерживает все классы, использующие интерфейс Target.
-    """
-
     print(target.request(), end="")
 
 
