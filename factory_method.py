@@ -13,7 +13,6 @@ class Worker(Product):
         self.hours = hours
 
     def calculate_risk(self):
-        # Пожалуйста, представьте более правдоподобную реализацию
         return self.age + 100/self.hours
 
     def __str__(self):
